@@ -6,7 +6,11 @@ namespace CSharpNoteTaker
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            // prompts
+            string start = "---------------C Sharp Note Taker-----------------\n" +
+                           "Welcome to the C Sharp Note Taker. Please enter your credentials to get started:";
+            
         }
     }
 }
