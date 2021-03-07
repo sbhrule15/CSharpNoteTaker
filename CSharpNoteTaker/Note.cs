@@ -5,17 +5,18 @@ namespace CSharpNoteTaker
     public class Note
     {
         private readonly Random _random = new Random();
-        private int _id;
-        public string Title { get; }
-        public DateTime DateCreated { get; }
-        public string Text { get; }
+        public int Id { get; private set;  }
+        public string Title { get; private set;}
+        public DateTime DateCreated { get; private set;}
+        public string Text { get; private set;}
 
         public Note(string title, string text)
         {
-            _id = _random.Next();
+            Id = _random.Next();
             Title = title;
             DateCreated = DateTime.Now;
             Text = text;
         }
+        
     }
 }

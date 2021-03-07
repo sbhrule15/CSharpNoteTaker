@@ -14,7 +14,7 @@ namespace CSharpNoteTaker
                                          "\t2. See all notes\n" + 
                                          "\tQ. Quit Application";
 
-        private static string goodbye = "Thank you for using the note taker. Goodbye!";
+        private static string goodbye = "\nThank you for using the note taker. Goodbye!";
         private static string invalidChoice = "\nThat was an invalid choice. Please try again with a valid menu option.\n\n";
 
         private static string inDev =
@@ -46,7 +46,7 @@ namespace CSharpNoteTaker
                 }
                 else if (menuChoice == "2")
                 {
-                    Console.WriteLine(inDev);
+                    SeeNotes(noteList);
                 }
                 else if (menuChoice == "Q")
                 {
@@ -55,7 +55,7 @@ namespace CSharpNoteTaker
                 }
                 else
                 {
-                    Console.WriteLine();
+                    Console.WriteLine(invalidChoice);
                 }
             }
         }
@@ -84,6 +84,26 @@ namespace CSharpNoteTaker
                 Console.WriteLine(noteEntryFailed);
                 return noteList;
             }
+        }
+
+        public static void SeeNotes(List<Note> noteList)
+        {
+            Console.WriteLine(seeNotesMenuHeader);
+            
+            if (noteList.Count == 0)
+            {
+                Console.WriteLine("\nThere are no notes to display.\n");
+            }
+            else
+            {
+                foreach (var note in noteList)
+                {
+                    Console.WriteLine("\nTitle: " + note.Title);
+                    Console.WriteLine("Created: " + note.DateCreated);
+                    Console.WriteLine("Note: " + note.Text);
+                }
+            }
+            
         }
     }
 }
