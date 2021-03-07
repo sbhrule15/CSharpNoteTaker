@@ -1,17 +1,20 @@
+using System;
+
 namespace CSharpNoteTaker
 {
     public class Note
     {
+        private readonly Random _random = new Random();
         private int _id;
-        public string Title { get; set; }
-        public string DateCreated { get; }
-        private string Text { get; set; }
+        public string Title { get; }
+        public DateTime DateCreated { get; }
+        public string Text { get; }
 
-        public Note(int id, string title, string dateCreated, string text)
+        public Note(string title, string text)
         {
-            _id = id;
+            _id = _random.Next();
             Title = title;
-            DateCreated = dateCreated;
+            DateCreated = DateTime.Now;
             Text = text;
         }
     }
